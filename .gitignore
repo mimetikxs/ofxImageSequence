@@ -10,7 +10,7 @@ docs/
 
 .svn/
 obj/
-bin/
+*/bin/*
 build/
 !data/
 xcuserdata/
