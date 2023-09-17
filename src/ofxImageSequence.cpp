@@ -150,7 +150,7 @@ bool ofxImageSequence::loadSequence(string prefix, string filetype,  int startDi
 	for(int i = startDigit; i <= endDigit; i++){
 		sprintf(imagename, format.str().c_str(), i);
 		filenames.push_back(imagename);
-		sequence.push_back(ofPixels());
+		sequence.push_back(ofShortPixels());
 		loadFailed.push_back(false);
 	}
 	
@@ -445,6 +445,21 @@ ofTexture& ofxImageSequence::getTextureForTime(float time)
 ofTexture& ofxImageSequence::getTextureForPercent(float percent){
 	setFrameAtPercent(percent);
 	return getTexture();
+}
+
+ofShortPixels& ofxImageSequence::getPixelsForFrame(int index) {
+    setFrame(index);
+    return sequence[lastFrameLoaded];
+}
+
+ofShortPixels& ofxImageSequence::getPixelsForTime(float time) {
+    setFrameForTime(time);
+    return sequence[lastFrameLoaded];
+}
+
+ofShortPixels& ofxImageSequence::getPixelsForPercent(float percent) {
+    setFrameAtPercent(percent);
+    return sequence[lastFrameLoaded];
 }
 
 void ofxImageSequence::setFrame(int index)

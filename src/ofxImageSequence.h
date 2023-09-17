@@ -106,6 +106,11 @@ class ofxImageSequence : public ofBaseHasTexture {
 	ofTexture& getTextureForFrame(int index);		 //returns a frame at a given index
 	ofTexture& getTextureForTime(float time); //returns a frame at a given time, used setFrameRate to set time
 	ofTexture& getTextureForPercent(float percent); //returns a frame at a given time, used setFrameRate to set time
+    
+    // testing pixels version (mimetikxs)
+    ofShortPixels& getPixelsForFrame(int index);
+    ofShortPixels& getPixelsForTime(float time);
+    ofShortPixels& getPixelsForPercent(float percent);
 
 	//if usinsg getTextureRef() use these to change the internal state
 	void setFrame(int index);					
@@ -146,7 +151,7 @@ class ofxImageSequence : public ofBaseHasTexture {
   protected:
 	ofxImageSequenceLoader* threadLoader;
 
-	vector<ofPixels> sequence;
+	vector<ofShortPixels> sequence;
 	vector<string> filenames;
 	vector<bool> loadFailed;
 	int currentFrame;
