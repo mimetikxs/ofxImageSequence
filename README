@@ -1,0 +1,4 @@
+**WIP**
+
+This branch uses templated classes to support any type of pixels (char, short or float).
+Example not working atm.
